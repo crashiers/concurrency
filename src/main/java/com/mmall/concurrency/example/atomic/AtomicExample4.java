@@ -17,6 +17,9 @@ import java.util.stream.Stream;
  */
 @Slf4j
 @ThreadSafe
+/**
+ * AtomicReference AtomicReferenceFieldUpdater
+ */
 public class AtomicExample4 {
 	private static AtomicReference<Integer> count = new AtomicReference<>(0);
 	public static void main(String[] args) {

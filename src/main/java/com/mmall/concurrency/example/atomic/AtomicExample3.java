@@ -17,6 +17,9 @@ import java.util.stream.Stream;
  */
 @Slf4j
 @ThreadSafe
+/**
+ * LongAdder
+ */
 public class AtomicExample3 {
 	//请求总数
 	public static int clientTotal = 5000;

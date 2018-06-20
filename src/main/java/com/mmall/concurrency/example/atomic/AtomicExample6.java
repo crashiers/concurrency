@@ -1,40 +1,43 @@
 package com.mmall.concurrency.example.atomic;
 
 import com.mmall.concurrency.annotations.ThreadSafe;
+import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicIntegerFieldUpdater;
 import java.util.stream.Stream;
 
 /**
- * Atomic CAS
- * UnSafe.compareAndSwapInt
+ * 线程安全:
+ * 	不管运行时采用何种调度方式,并且在主调代码中不需要额外的协同或者同步,都能表现出正确的行为
  */
 @Slf4j
 @ThreadSafe
-public class AtomicExample1 {
-	//请求总数
-	public static int clientTotal = 5000;
+/**
+ * AtomicStampReference:CAS的ABA问题
+ */
+public class AtomicExample6 {
+	private static AtomicBoolean isHappend = new AtomicBoolean(false);
 
-	public static int threadTotal = 200;
+	private static int clientTotal = 5000;
+	private static int threadTotal = 200;
 
-	private static AtomicInteger count = new AtomicInteger(1);
-
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) throws Exception {
 		ExecutorService executorService = Executors.newCachedThreadPool();
 		final Semaphore semaphore = new Semaphore(threadTotal);
 		final CountDownLatch countDownLatch = new CountDownLatch(clientTotal);
-		Stream.iterate(0,n->n+1)
+		Stream.iterate(0, n->n+1)
 				.limit(clientTotal)
 				.forEach(e->{
 					executorService.execute(()->{
 						try {
 							semaphore.acquire();
-							add();
+							test();
 							semaphore.release();
 						}catch (Exception a){
 							a.printStackTrace();
@@ -44,9 +47,12 @@ public class AtomicExample1 {
 				});
 		countDownLatch.await();
 		executorService.shutdown();
-		log.info("count:{}",count);
+		log.info("count:{}",isHappend.get());
 	}
-	public static void add(){
-		count.incrementAndGet();
+	public static void test(){
+		if(isHappend.compareAndSet(false,true)){
+			log.info("execute");
+		}
 	}
 }
+
