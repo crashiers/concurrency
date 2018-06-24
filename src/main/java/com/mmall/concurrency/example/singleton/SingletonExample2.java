@@ -9,7 +9,6 @@ import com.mmall.concurrency.annotations.ThreadSafe;
 public class SingletonExample2 {
 	//构造私有化
 	private SingletonExample2() {
-
 	}
 
 	//单例对象
