@@ -3,6 +3,8 @@ package com.mmall.concurrency.example.singleton;
 import com.mmall.concurrency.annotations.NotRecommend;
 import com.mmall.concurrency.annotations.ThreadSafe;
 
+import java.util.Vector;
+
 //饿汉式
 @ThreadSafe
 public class SingletonExample2 {
@@ -19,7 +21,6 @@ public class SingletonExample2 {
 	public static SingletonExample2 getInstance(){
 		return instance;
 	}
-
 	public static void main(String[] args){
 		System.out.println(getInstance());
 		System.out.println(getInstance());
