@@ -21,7 +21,7 @@ public class ConcurrencyTest {
 
 	public static void main(String[] args) throws InterruptedException {
 		ExecutorService executorService = Executors.newCachedThreadPool();
-		//信号量
+		//信号量-控制同一时间并发的数目
 		final Semaphore semaphore = new Semaphore(threadTotal);
 		//计数器闭锁
 		final CountDownLatch countDownLatch = new CountDownLatch(clientTotal);
