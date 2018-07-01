@@ -1,7 +1,7 @@
 package com.mmall.concurrencyTeacher.example.singleton;
 
-import com.mmall.concurrency.annoations.NotRecommend;
-import com.mmall.concurrency.annoations.ThreadSafe;
+import com.mmall.concurrency.annotations.NotRecommend;
+import com.mmall.concurrency.annotations.ThreadSafe;
 
 /**
  * 懒汉模式
@@ -17,12 +17,12 @@ public class SingletonExample3 {
     }
 
     // 单例对象
-    private static com.mmall.concurrency.example.singleton.SingletonExample3 instance = null;
+    private static SingletonExample3 instance = null;
 
     // 静态的工厂方法
-    public static synchronized com.mmall.concurrency.example.singleton.SingletonExample3 getInstance() {
+    public static synchronized SingletonExample3 getInstance() {
         if (instance == null) {
-            instance = new com.mmall.concurrency.example.singleton.SingletonExample3();
+            instance = new SingletonExample3();
         }
         return instance;
     }

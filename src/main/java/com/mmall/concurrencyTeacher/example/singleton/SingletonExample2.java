@@ -1,6 +1,6 @@
 package com.mmall.concurrencyTeacher.example.singleton;
 
-import com.mmall.concurrency.annoations.ThreadSafe;
+import com.mmall.concurrency.annotations.ThreadSafe;
 
 /**
  * 饿汉模式
@@ -15,10 +15,10 @@ public class SingletonExample2 {
     }
 
     // 单例对象
-    private static com.mmall.concurrency.example.singleton.SingletonExample2 instance = new com.mmall.concurrency.example.singleton.SingletonExample2();
+    private static SingletonExample2 instance = new SingletonExample2();
 
     // 静态的工厂方法
-    public static com.mmall.concurrency.example.singleton.SingletonExample2 getInstance() {
+    public static SingletonExample2 getInstance() {
         return instance;
     }
 }

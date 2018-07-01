@@ -1,6 +1,6 @@
 package com.mmall.concurrencyTeacher.example.syncContainer;
 
-import com.mmall.concurrency.annoations.NotThreadSafe;
+import com.mmall.concurrency.annotations.NotThreadSafe;
 
 import java.util.Vector;
 

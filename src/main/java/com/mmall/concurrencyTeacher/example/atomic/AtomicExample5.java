@@ -1,6 +1,6 @@
 package com.mmall.concurrencyTeacher.example.atomic;
 
-import com.mmall.concurrency.annoations.ThreadSafe;
+import com.mmall.concurrency.annotations.ThreadSafe;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 

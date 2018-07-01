@@ -1,7 +1,7 @@
 package com.mmall.concurrencyTeacher.example.immutable;
 
 import com.google.common.collect.Maps;
-import com.mmall.concurrency.annoations.ThreadSafe;
+import com.mmall.concurrency.annotations.ThreadSafe;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Collections;

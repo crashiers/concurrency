@@ -1,6 +1,6 @@
 package com.mmall.concurrencyTeacher.example.commonUnsafe;
 
-import com.mmall.concurrency.annoations.NotThreadSafe;
+import com.mmall.concurrency.annotations.NotThreadSafe;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.HashSet;

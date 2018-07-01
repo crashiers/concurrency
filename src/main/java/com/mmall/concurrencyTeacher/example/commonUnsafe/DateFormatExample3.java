@@ -1,11 +1,12 @@
 package com.mmall.concurrencyTeacher.example.commonUnsafe;
 
-import com.mmall.concurrency.annoations.ThreadSafe;
+import com.mmall.concurrency.annotations.ThreadSafe;
 import lombok.extern.slf4j.Slf4j;
-import org.joda.time.DateTime;
-import org.joda.time.format.DateTimeFormat;
-import org.joda.time.format.DateTimeFormatter;
+//import org.joda.time.DateTime;
+//import org.joda.time.format.DateTimeFormat;
+//import org.joda.time.format.DateTimeFormatter;
 
+import java.time.format.DateTimeFormatter;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -21,7 +22,7 @@ public class DateFormatExample3 {
     // 同时并发执行的线程数
     public static int threadTotal = 200;
 
-    private static DateTimeFormatter dateTimeFormatter = DateTimeFormat.forPattern("yyyyMMdd");
+   // private static DateTimeFormatter dateTimeFormatter = DateTimeFormatter.forPattern("yyyyMMdd");
 
     public static void main(String[] args) throws Exception {
         ExecutorService executorService = Executors.newCachedThreadPool();
@@ -45,6 +46,6 @@ public class DateFormatExample3 {
     }
 
     private static void update(int i) {
-        log.info("{}, {}", i, DateTime.parse("20180208", dateTimeFormatter).toDate());
+      //  log.info("{}, {}", i, DateTime.parse("20180208", dateTimeFormatter).toDate());
     }
 }
